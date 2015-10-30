@@ -1,0 +1,4 @@
+*** Storefront Sticky Add to Cart Changelog ***
+
+2015.10.29 - version 1.0.0
+* Initial release
