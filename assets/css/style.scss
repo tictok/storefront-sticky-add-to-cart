@@ -61,7 +61,7 @@
     }
 
     .ssatc-content {
-    	float: left;
+        position: relative;
     }
 
     .price,
@@ -70,17 +70,23 @@
     	opacity: 0.75;
     }
 
-    .price {
-    	margin-right: 1em;
+    .button {
+        margin-top: .53em;
     }
 
-    .button {
-    	float: right;
+    .price {
+    	margin-right: 1em;
     }
 }
 
 @media screen and (min-width: 768px) {
 
 	// Styles for desktop
-
+    .ssatc-sticky-add-to-cart {
+        .button {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
 }
