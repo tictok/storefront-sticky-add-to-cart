@@ -286,7 +286,7 @@ final class Storefront_Sticky_Add_to_Cart {
 									$ssatc->ssatc_product_image();
 									echo '<div class="ssatc-content">';
 										echo __( 'You\'re viewing:', 'storefront-sticky-add-to-cart' ) . ' <strong>' . get_the_title() . '</strong><br />';
-										echo '<span class="price">' . $product->get_price_html() . '</span> ';
+										echo '<span class="price">' . $product->get_price_html() . $product->get_rating_html() . '</span> ';
 										echo apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product );
 										echo '<br /><a href="' . $product->add_to_cart_url() . '" class="button">' . $product->single_add_to_cart_text() . '</a>';
 									echo '</div>';
