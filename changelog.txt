@@ -1,4 +1,10 @@
 *** Storefront Sticky Add to Cart Changelog ***
 
+2015.11.06 - version 1.1.0
+* New - Now displays the product rating as well. Kudos @BurlesonBrad.
+* New - Now works for variable products.
+* Tweak - Button now uses the `.alt` class to stand out more.
+* Tweak - Minor style adjustments.
+
 2015.10.29 - version 1.0.0
 * Initial release

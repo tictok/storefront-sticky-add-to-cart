@@ -11,9 +11,9 @@ Storefront Sticky Add to Cart adds a convenient bar which sticks to the top of y
 
 == Description ==
 
-Product pages can be long. Some products have long descriptions, lots of reviews, galleries, you name it. By the time a visitor has read all of the product content and decided to commit to purchasing the product, the add to cart button is often hidden way off screen at the top of the page. Not any more! The Storefront Sticky Add to Cart plugin reveals a small content bar at the top of the browser window which includes the product name, price, stock status and the all-important add to cart button. It subtly slides into view once the standard add-to-cart button has scrolled out of view. Now when your customers decide they want to buy your product they no longer have to go hunting to add it to their cart!
+Product pages can be long. Some products have long descriptions, lots of reviews, galleries, you name it. By the time a visitor has read all of the product content and decided to commit to purchasing the product, the add to cart button is often hidden way off screen at the top of the page. Not any more! The Storefront Sticky Add to Cart plugin reveals a small content bar at the top of the browser window which includes the product name, price, rating, stock status and the all-important add to cart button. It subtly slides into view once the standard add-to-cart button has scrolled out of view. Now when your customers decide they want to buy your product they no longer have to go hunting to add it to their cart!
 
-[youtube https://youtu.be/v3daZU1kWJs]
+[youtube https://www.youtube.com/watch?v=v3daZU1kWJs]
 
 As the name suggests this plugin has been designed to work with our [Storefront](http://wordpress.org/themes/storefront/) theme. The add-to-cart bar colors will be lifted from your Storefront configuration in the Customizer. The main background color is applied to the background, the main text color applied to the text and the main link color applied to links. If you want to use this plugin with another theme you'll have to build your own integration. More info in the FAQ.
 
@@ -24,10 +24,6 @@ As the name suggests this plugin has been designed to work with our [Storefront]
 3. Done!
 
 == Frequently Asked Questions ==
-
-= I only see the add-to-cart bar on simple products, why? =
-
-Because grouped and variable products require additional input before they can be added to the cart reducing the effectiveness of this feature. I might look at including the variable product selectors in a future version.
 
 = I want to integrate with a theme other than Storefront, how do I do it? =
 

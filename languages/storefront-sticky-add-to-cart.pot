@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Storefront Sticky Add to Cart package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Storefront Sticky Add to Cart 1.0.0\n"
+"Project-Id-Version: Storefront Sticky Add to Cart 1.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/storefront-sticky-add-to-"
 "cart\n"
-"POT-Creation-Date: 2015-10-30 10:08:29+00:00\n"
+"POT-Creation-Date: 2015-11-06 10:13:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,12 +21,16 @@ msgstr ""
 msgid "Support"
 msgstr ""
 
-#: storefront-sticky-add-to-cart.php:255
+#: storefront-sticky-add-to-cart.php:256
 msgid "Placeholder"
 msgstr ""
 
-#: storefront-sticky-add-to-cart.php:288
+#: storefront-sticky-add-to-cart.php:289
 msgid "You're viewing:"
+msgstr ""
+
+#: storefront-sticky-add-to-cart.php:296
+msgid "Select options"
 msgstr ""
 
 #. Plugin Name of the plugin/theme

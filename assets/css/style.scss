@@ -57,21 +57,35 @@
     	max-height: 3.631em;
     	width: auto;
     	float: left;
-    	margin: 0 1em 0 0;
+    	margin: 0 2em 0 0;
+        padding: 3px;
+        border: 1px solid rgba(#000,.1);
     }
 
     .ssatc-content {
         position: relative;
+        line-height: 1.387;
+    }
+
+    .star-rating {
+        display: inline-block;
+        font-size: .75em;
+        margin-right: 1em;
+        @include transform(translateY(1px));
     }
 
     .price,
     .stock {
     	font-size: .857em;
-    	opacity: 0.75;
+    	opacity: 0.5;
     }
 
-    .button {
-        margin-top: .53em;
+    .button.variable {
+        &:after {
+            content: "\f106";
+            font-family: "FontAwesome";
+            margin-left: .53em;
+        }
     }
 
     .price {

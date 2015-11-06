@@ -38,15 +38,29 @@
     max-height: 3.631em;
     width: auto;
     float: left;
-    margin: 0 1em 0 0; }
+    margin: 0 2em 0 0;
+    padding: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.1); }
   .ssatc-sticky-add-to-cart .ssatc-content {
-    position: relative; }
+    position: relative;
+    line-height: 1.387; }
+  .ssatc-sticky-add-to-cart .star-rating {
+    display: inline-block;
+    font-size: .75em;
+    margin-right: 1em;
+    -webkit-transform: translateY(1px);
+    -moz-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    -o-transform: translateY(1px);
+    transform: translateY(1px); }
   .ssatc-sticky-add-to-cart .price,
   .ssatc-sticky-add-to-cart .stock {
     font-size: .857em;
-    opacity: 0.75; }
-  .ssatc-sticky-add-to-cart .button {
-    margin-top: .53em; }
+    opacity: 0.5; }
+  .ssatc-sticky-add-to-cart .button.variable:after {
+    content: "\f106";
+    font-family: "FontAwesome";
+    margin-left: .53em; }
   .ssatc-sticky-add-to-cart .price {
     margin-right: 1em; }
 
