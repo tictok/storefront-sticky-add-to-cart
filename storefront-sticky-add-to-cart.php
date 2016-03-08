@@ -3,7 +3,7 @@
  * Plugin Name:			Storefront Sticky Add to Cart
  * Plugin URI:			https://wordpress.org/plugins/storefront-sticky-add-to-cart/
  * Description:			Adds a sticky add-to-cart bar in single product pages that is revealed as the user scrolls down the page.
- * Version:				1.1.0
+ * Version:				1.1.1
  * Author:				WooThemes
  * Author URI:			http://woothemes.com/
  * Requires at least:	4.0.0
@@ -17,7 +17,9 @@
  * @author James Koster
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 
 /**
@@ -26,11 +28,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @since  1.0.0
  * @return object Storefront_Sticky_Add_to_Cart
  */
-function Storefront_Sticky_Add_to_Cart() {
+function storefront_sticky_add_to_cart() {
 	return Storefront_Sticky_Add_to_Cart::instance();
 } // End Storefront_Sticky_Add_to_Cart()
 
-Storefront_Sticky_Add_to_Cart();
+storefront_sticky_add_to_cart();
 
 /**
  * Main Storefront_Sticky_Add_to_Cart Class
@@ -43,6 +45,7 @@ Storefront_Sticky_Add_to_Cart();
 final class Storefront_Sticky_Add_to_Cart {
 	/**
 	 * Storefront_Sticky_Add_to_Cart The single instance of Storefront_Sticky_Add_to_Cart.
+	 *
 	 * @var 	object
 	 * @access  private
 	 * @since 	1.0.0
@@ -51,6 +54,7 @@ final class Storefront_Sticky_Add_to_Cart {
 
 	/**
 	 * The token.
+	 *
 	 * @var     string
 	 * @access  public
 	 * @since   1.0.0
@@ -59,15 +63,16 @@ final class Storefront_Sticky_Add_to_Cart {
 
 	/**
 	 * The version number.
+	 *
 	 * @var     string
 	 * @access  public
 	 * @since   1.0.0
 	 */
 	public $version;
 
-	// Admin - Start
 	/**
 	 * The admin object.
+	 *
 	 * @var     object
 	 * @access  public
 	 * @since   1.0.0
@@ -76,6 +81,7 @@ final class Storefront_Sticky_Add_to_Cart {
 
 	/**
 	 * Constructor function.
+	 *
 	 * @access  public
 	 * @since   1.0.0
 	 * @return  void
@@ -84,7 +90,7 @@ final class Storefront_Sticky_Add_to_Cart {
 		$this->token 			= 'storefront-sticky-add-to-cart';
 		$this->plugin_url 		= plugin_dir_url( __FILE__ );
 		$this->plugin_path 		= plugin_dir_path( __FILE__ );
-		$this->version 			= '1.1.0';
+		$this->version 			= '1.1.1';
 
 		register_activation_hook( __FILE__, array( $this, 'install' ) );
 
@@ -106,13 +112,16 @@ final class Storefront_Sticky_Add_to_Cart {
 	 * @return Main Storefront_Sticky_Add_to_Cart instance
 	 */
 	public static function instance() {
-		if ( is_null( self::$_instance ) )
+		if ( is_null( self::$_instance ) ) {
 			self::$_instance = new self();
+		}
+
 		return self::$_instance;
 	} // End instance()
 
 	/**
 	 * Load the localisation file.
+	 *
 	 * @access  public
 	 * @since   1.0.0
 	 * @return  void
@@ -127,7 +136,7 @@ final class Storefront_Sticky_Add_to_Cart {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_attr__( 'Cheatin&#8217; huh?' ), '1.0.0' );
 	}
 
 	/**
@@ -136,17 +145,18 @@ final class Storefront_Sticky_Add_to_Cart {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_attr__( 'Cheatin&#8217; huh?' ), '1.0.0' );
 	}
 
 	/**
 	 * Plugin page links
 	 *
+	 * @param array $links the plugin action links.
 	 * @since  1.0.0
 	 */
 	public function ssatc_plugin_links( $links ) {
 		$plugin_links = array(
-			'<a href="https://wordpress.org/support/plugin/storefront-sticky-add-to-cart">' . __( 'Support', 'storefront-sticky-add-to-cart' ) . '</a>',
+			'<a href="https://wordpress.org/support/plugin/storefront-sticky-add-to-cart">' . esc_attr__( 'Support', 'storefront-sticky-add-to-cart' ) . '</a>',
 		);
 
 		return array_merge( $plugin_links, $links );
@@ -155,6 +165,7 @@ final class Storefront_Sticky_Add_to_Cart {
 	/**
 	 * Installation.
 	 * Runs on activation. Logs the version number.
+	 *
 	 * @access  public
 	 * @since   1.0.0
 	 * @return  void
@@ -165,6 +176,7 @@ final class Storefront_Sticky_Add_to_Cart {
 
 	/**
 	 * Log the plugin version number.
+	 *
 	 * @access  private
 	 * @since   1.0.0
 	 * @return  void
@@ -176,6 +188,7 @@ final class Storefront_Sticky_Add_to_Cart {
 
 	/**
 	 * Setup all the things.
+	 *
 	 * @return void
 	 */
 	public function ssatc_setup() {
@@ -185,6 +198,7 @@ final class Storefront_Sticky_Add_to_Cart {
 
 	/**
 	 * Enqueue CSS and custom styles.
+	 *
 	 * @since   1.0.0
 	 * @return  void
 	 */
@@ -196,26 +210,16 @@ final class Storefront_Sticky_Add_to_Cart {
 		wp_register_script( 'waypoints-init', plugins_url( '/assets/js/waypoints.init.min.js', __FILE__ ), array( 'jquery' ) );
 		wp_register_script( 'ssatc-variable', plugins_url( '/assets/js/variable.min.js', __FILE__ ), array( 'jquery' ) );
 
-		// If Storefront is the active parent theme, add some styles
-		if ( 'Storefront' == $theme->name || 'storefront' == $theme->template ) {
+		// If Storefront is the active parent theme, add some styles.
+		if ( 'Storefront' === $theme->name || 'storefront' === $theme->template ) {
 
-			$content_bg_color	= storefront_sanitize_hex_color( get_theme_mod( 'sd_content_background_color' ) );
-			$content_frame 		= get_theme_mod( 'sd_fixed_width' );
-
-
-			if ( $content_bg_color && 'true' == $content_frame && class_exists( 'Storefront_Designer' ) ) {
-				$bg_color 	= str_replace( '#', '', $content_bg_color );
-			} else {
-				$bg_color	= str_replace( '#', '', get_theme_mod( 'background_color' ) );
-			}
-
-			$accent_color 		= storefront_sanitize_hex_color( get_theme_mod( 'storefront_accent_color', apply_filters( 'storefront_default_accent_color', '#96588a' ) ) );
-			$text_color 		= storefront_sanitize_hex_color( get_theme_mod( 'storefront_text_color', apply_filters( 'storefront_default_text_color', '#60646c' ) ) );
-
+			$bg_color     = storefront_get_content_background_color();
+			$accent_color = get_theme_mod( 'storefront_accent_color' );
+			$text_color   = get_theme_mod( 'storefront_text_color' );
 
 			$ssatc_style = '
 			.ssatc-sticky-add-to-cart {
-				background-color: #' . $bg_color . ';
+				background-color: ' . $bg_color . ';
 				color: ' . $text_color . ';
 			}
 
@@ -236,6 +240,7 @@ final class Storefront_Sticky_Add_to_Cart {
 
 	/**
 	 * Display the current product image
+	 *
 	 * @return void
 	 */
 	public function ssatc_product_image() {
@@ -243,60 +248,60 @@ final class Storefront_Sticky_Add_to_Cart {
 
 		if ( has_post_thumbnail() ) {
 
-			$image_title 	= esc_attr( get_the_title( get_post_thumbnail_id() ) );
-			$image       	= get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_catalog' ), array(
+			$image_title = esc_attr( get_the_title( get_post_thumbnail_id() ) );
+			$image       = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_catalog' ), array(
 				'title'	=> $image_title,
-				'alt'	=> $image_title
-				) );
+				'alt'	=> $image_title,
+			) );
 
-			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '%s', $image ), $post->ID );
+			echo wp_kses_post( apply_filters( 'woocommerce_single_product_image_html', sprintf( '%s', $image ), $post->ID ) );
 
 		} else {
 
-			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'storefront-sticky-add-to-cart' ) ), $post->ID );
+			echo wp_kses_post( apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'storefront-sticky-add-to-cart' ) ), $post->ID ) );
 
 		}
 	}
 
 	/**
 	 * Display the add to cart bar
+	 *
 	 * @return void
 	 */
 	function ssatc_add_to_cart_bar() {
 		global $product;
 
-		// Only execute if WooCommerce is installed
+		// Only execute if WooCommerce is installed.
 		if ( class_exists( 'WooCommerce' ) ) {
 
-			// And if we're on a product page
+			// And if we're on a product page.
 			if ( is_product() ) {
-				$_product 			= new WC_Product( $product->ID );
-				$availability      	= $product->get_availability();
-				$ssatc 				= new Storefront_Sticky_Add_to_Cart();
-				$availability_html 	= empty( $availability['availability'] ) ? '' : '<span class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</span>';
+				$_product          = new WC_Product( $product->ID );
+				$availability      = $product->get_availability();
+				$ssatc             = new Storefront_Sticky_Add_to_Cart();
+				$availability_html = empty( $availability['availability'] ) ? '' : '<span class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</span>';
 
-				// And if the product isn't variable or grouped
-
-					wp_enqueue_script( 'waypoints' );
-					wp_enqueue_script( 'waypoints-init' );
+				// And if the product isn't variable or grouped.
+				wp_enqueue_script( 'waypoints' );
+				wp_enqueue_script( 'waypoints-init' );
 
 					?>
 						<section class="ssatc-sticky-add-to-cart animated">
 							<div class="col-full">
 								<?php
-									$ssatc->ssatc_product_image();
-									echo '<div class="ssatc-content">';
-										echo __( 'You\'re viewing:', 'storefront-sticky-add-to-cart' ) . ' <strong>' . get_the_title() . '</strong><br />';
-										echo '<span class="price">' . $product->get_price_html() . '</span> ' . $product->get_rating_html();
-										echo apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product );
+								$ssatc->ssatc_product_image();
+								echo '<div class="ssatc-content">';
+								echo esc_attr__( 'You\'re viewing:', 'storefront-sticky-add-to-cart' ) . ' <strong>' . get_the_title() . '</strong><br />';
+								echo '<span class="price">' . wp_kses_post( $product->get_price_html() ) . '</span> ' . wp_kses_post( $product->get_rating_html() );
+								echo wp_kses_post( apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product ) );
 
-										if ( $product->is_type( 'simple' ) ) {
-											echo '<br /><a href="' . $product->add_to_cart_url() . '" class="button alt">' . $product->single_add_to_cart_text() . '</a>';
-										} elseif ( $product->is_type( 'variable' ) ) {
-											echo '<br /><a class="button alt variable">' . __( 'Select options', 'storefront-sticky-add-to-cart' ) . '</a>';
-											wp_enqueue_script( 'ssatc-variable' );
-										}
-									echo '</div>';
+								if ( $product->is_type( 'simple' ) ) {
+									echo '<br /><a href="' . esc_url( $product->add_to_cart_url() ) . '" class="button alt">' . esc_attr( $product->single_add_to_cart_text() ) . '</a>';
+								} elseif ( $product->is_type( 'variable' ) ) {
+									echo '<br /><a class="button alt variable">' . esc_attr__( 'Select options', 'storefront-sticky-add-to-cart' ) . '</a>';
+									wp_enqueue_script( 'ssatc-variable' );
+								}
+								echo '</div>';
 								?>
 							</div>
 						</section>
@@ -304,5 +309,4 @@ final class Storefront_Sticky_Add_to_Cart {
 			}
 		}
 	}
-
 } // End Class

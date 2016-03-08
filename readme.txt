@@ -3,7 +3,7 @@ Contributors: jameskoster, woothemes
 Tags: woocommerce, ecommerce, storefront, sticky
 Requires at least: 4.0
 Tested up to: 4.3.1
-Stable tag: 1.0.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,16 @@ It's very simple, most of the core styles are loaded regardless. You'll just nee
 1. The sticky add to cart bar in action.
 
 == Changelog ==
+
+= 1.1.1 - 03.08.2016 =
+* Tweak - Storefront 2.0.0 compatibility.
+* Tweak - General code tidy up.
+
+= 1.1.0 - 11.06.2015 =
+* New - Now displays the product rating as well. Kudos @BurlesonBrad.
+* New - Now works for variable products.
+* Tweak - Button now uses the `.alt` class to stand out more.
+* Tweak - Minor style adjustments.
 
 = 1.0.0 - 10.30.2015 =
 Initial release.
