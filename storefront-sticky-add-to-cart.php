@@ -3,7 +3,7 @@
  * Plugin Name:			Storefront Sticky Add to Cart
  * Plugin URI:			https://wordpress.org/plugins/storefront-sticky-add-to-cart/
  * Description:			Adds a sticky add-to-cart bar in single product pages that is revealed as the user scrolls down the page.
- * Version:				1.1.1
+ * Version:				1.1.2
  * Author:				WooThemes
  * Author URI:			http://woothemes.com/
  * Requires at least:	4.0.0
@@ -90,7 +90,7 @@ final class Storefront_Sticky_Add_to_Cart {
 		$this->token 			= 'storefront-sticky-add-to-cart';
 		$this->plugin_url 		= plugin_dir_url( __FILE__ );
 		$this->plugin_path 		= plugin_dir_path( __FILE__ );
-		$this->version 			= '1.1.1';
+		$this->version 			= '1.1.2';
 
 		register_activation_hook( __FILE__, array( $this, 'install' ) );
 
@@ -297,7 +297,7 @@ final class Storefront_Sticky_Add_to_Cart {
 
 								if ( $product->is_type( 'simple' ) ) {
 									echo '<br /><a href="' . esc_url( $product->add_to_cart_url() ) . '" class="button alt">' . esc_attr( $product->single_add_to_cart_text() ) . '</a>';
-								} elseif ( $product->is_type( 'variable' ) ) {
+								} else {
 									echo '<br /><a class="button alt variable">' . esc_attr__( 'Select options', 'storefront-sticky-add-to-cart' ) . '</a>';
 									wp_enqueue_script( 'ssatc-variable' );
 								}
