@@ -3,7 +3,7 @@ Contributors: jameskoster, woothemes
 Tags: woocommerce, ecommerce, storefront, sticky
 Requires at least: 4.0
 Tested up to: 4.5.0
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,9 @@ It's very simple, most of the core styles are loaded regardless. You'll just nee
 1. The sticky add to cart bar in action.
 
 == Changelog ==
+
+= 1.1.3 - 04.26.2016 =
+* Tweak - Integration with Catalog Visibility Options extension.
 
 = 1.1.2 - 04.13.2016 =
 * Tweak - Compatibility with products other than simple/variable (eg. Subscriptions).

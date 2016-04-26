@@ -3,7 +3,7 @@
  * Plugin Name:			Storefront Sticky Add to Cart
  * Plugin URI:			https://wordpress.org/plugins/storefront-sticky-add-to-cart/
  * Description:			Adds a sticky add-to-cart bar in single product pages that is revealed as the user scrolls down the page.
- * Version:				1.1.2
+ * Version:				1.1.3
  * Author:				WooThemes
  * Author URI:			http://woothemes.com/
  * Requires at least:	4.0.0
@@ -90,7 +90,7 @@ final class Storefront_Sticky_Add_to_Cart {
 		$this->token 			= 'storefront-sticky-add-to-cart';
 		$this->plugin_url 		= plugin_dir_url( __FILE__ );
 		$this->plugin_path 		= plugin_dir_path( __FILE__ );
-		$this->version 			= '1.1.2';
+		$this->version 			= '1.1.3';
 
 		register_activation_hook( __FILE__, array( $this, 'install' ) );
 
@@ -295,27 +295,26 @@ final class Storefront_Sticky_Add_to_Cart {
 								echo '<span class="price">' . wp_kses_post( $product->get_price_html() ) . '</span> ' . wp_kses_post( $product->get_rating_html() );
 								echo wp_kses_post( apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product ) );
 
-                                ob_start();
+								ob_start();
 
-                                if ( $product->is_type( 'simple' ) ) {
-    								echo '<br /><a href="' . esc_url( $product->add_to_cart_url() ) . '" class="button alt">' . esc_attr( $product->single_add_to_cart_text() ) . '</a>';
-    							} else {
-    								echo '<br /><a class="button alt variable">' . esc_attr__( 'Select options', 'storefront-sticky-add-to-cart' ) . '</a>';
-    								wp_enqueue_script( 'ssatc-variable' );
-    							}
+								if ( $product->is_type( 'simple' ) ) {
+									echo '<br /><a href="' . esc_url( $product->add_to_cart_url() ) . '" class="button alt">' . esc_attr( $product->single_add_to_cart_text() ) . '</a>';
+								} else {
+									echo '<br /><a class="button alt variable">' . esc_attr__( 'Select options', 'storefront-sticky-add-to-cart' ) . '</a>';
+									wp_enqueue_script( 'ssatc-variable' );
+								}
 
-                                if ( class_exists ('WC_Catalog_Restrictions') ) {
-                                    if (!WC_Catalog_Restrictions_Filters::instance()->user_can_purchase( $product ))
-                                    {
-                                        ob_end_clean();
-                                        global $wc_cvo;
-                                        $html = apply_filters( 'catalog_visibility_alternate_add_to_cart_button', do_shortcode( wpautop( wptexturize( $wc_cvo->setting( 'wc_cvo_s_price_text' ) ) ) ) );
+								if ( class_exists( 'WC_Catalog_Restrictions' ) ) {
+									if ( ! WC_Catalog_Restrictions_Filters::instance()->user_can_purchase( $product ) ) {
+										ob_end_clean();
+										global $wc_cvo;
+										$html = apply_filters( 'catalog_visibility_alternate_add_to_cart_button', do_shortcode( wpautop( wptexturize( $wc_cvo->setting( 'wc_cvo_s_price_text' ) ) ) ) );
 
-                            			echo $html;
-                                    }
-                                }
+										echo $html;
+									}
+								}
 
-                                ob_end_flush();
+								ob_end_flush();
 
 								echo '</div>';
 								?>
