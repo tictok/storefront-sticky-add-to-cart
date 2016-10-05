@@ -1,3 +1,5 @@
+@media screen and (min-width: 768px) {
+
 @keyframes slideInDown {
   from {
     transform: translate3d(0, -100%, 0);
@@ -64,8 +66,8 @@
   .ssatc-sticky-add-to-cart .price {
     margin-right: 1em; }
 
-@media screen and (min-width: 768px) {
   .ssatc-sticky-add-to-cart .button {
     position: absolute;
     top: 0;
     right: 0; } }
+}
