@@ -2,6 +2,12 @@
 @import 'bourbon';
 @import '../../../../themes/storefront/sass/utils/variables';
 
+.ssatc-sticky-add-to-cart{
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+
 @keyframes slideInDown {
 	from {
 		transform: translate3d(0, -100%, 0);
@@ -42,6 +48,7 @@
 }
 
 .ssatc-sticky-add-to-cart {
+	display: block;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -93,14 +100,13 @@
     }
 }
 
-@media screen and (min-width: 768px) {
 
-	// Styles for desktop
-    .ssatc-sticky-add-to-cart {
-        .button {
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
+.ssatc-sticky-add-to-cart {
+    .button {
+        position: absolute;
+        top: 0;
+        right: 0;
     }
+}
+
 }
