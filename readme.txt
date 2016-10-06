@@ -2,8 +2,8 @@
 Contributors: jameskoster, woothemes
 Tags: woocommerce, ecommerce, storefront, sticky
 Requires at least: 4.0
-Tested up to: 4.5.0
-Stable tag: 1.1.3
+Tested up to: 4.6.1
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,11 +29,18 @@ As the name suggests this plugin has been designed to work with our [Storefront]
 
 It's very simple, most of the core styles are loaded regardless. You'll just need to apply a background color to the content bar like so; `.ssatc-sticky-add-to-cart { background-color: white; }`.
 
+= Why doesn't he sticky add to cart component display on mobile? =
+
+It simply takes up too much valuable screen real estate. You can display it on mobile with a few lines of css if you need to.
+
 == Screenshots ==
 
 1. The sticky add to cart bar in action.
 
 == Changelog ==
+
+= 1.1.4 - 10.06.2016 =
+* Tweak - Hide the sticky add to cart component on mobile as it takes up too much screen real estate.
 
 = 1.1.3 - 04.26.2016 =
 * Tweak - Integration with Catalog Visibility Options extension.
