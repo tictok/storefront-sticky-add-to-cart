@@ -1,4 +1,12 @@
+.ssatc-sticky-add-to-cart{
+    display: none;
+}
+
 @media screen and (min-width: 768px) {
+
+.ssatc-sticky-add-to-cart{
+    display: block;
+}
 
 @keyframes slideInDown {
   from {
