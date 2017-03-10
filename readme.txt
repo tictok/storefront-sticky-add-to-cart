@@ -2,8 +2,8 @@
 Contributors: jameskoster, woothemes
 Tags: woocommerce, ecommerce, storefront, sticky
 Requires at least: 4.0
-Tested up to: 4.6.1
-Stable tag: 1.1.4
+Tested up to: 4.7.3
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ It simply takes up too much valuable screen real estate. You can display it on m
 1. The sticky add to cart bar in action.
 
 == Changelog ==
+
+= 1.1.5 - 10.06.2017 =
+* Tweak - WooCommerce 2.7 compatibility.
 
 = 1.1.4 - 10.06.2016 =
 * Tweak - Hide the sticky add to cart component on mobile as it takes up too much screen real estate.

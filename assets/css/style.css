@@ -50,7 +50,6 @@
       position: relative;
       line-height: 1.387; }
     .ssatc-sticky-add-to-cart .star-rating {
-      display: inline-block;
       font-size: .75em;
       margin-right: 1em;
       -webkit-transform: translateY(1px);

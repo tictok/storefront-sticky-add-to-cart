@@ -3,11 +3,11 @@
  * Plugin Name:			Storefront Sticky Add to Cart
  * Plugin URI:			https://wordpress.org/plugins/storefront-sticky-add-to-cart/
  * Description:			Adds a sticky add-to-cart bar in single product pages that is revealed as the user scrolls down the page.
- * Version:				1.1.4
+ * Version:				1.1.5
  * Author:				WooThemes
  * Author URI:			http://woothemes.com/
  * Requires at least:	4.0.0
- * Tested up to:		4.6.1
+ * Tested up to:		4.7.3
  *
  * Text Domain: storefront-sticky-add-to-cart
  * Domain Path: /languages/
@@ -90,7 +90,7 @@ final class Storefront_Sticky_Add_to_Cart {
 		$this->token 			= 'storefront-sticky-add-to-cart';
 		$this->plugin_url 		= plugin_dir_url( __FILE__ );
 		$this->plugin_path 		= plugin_dir_path( __FILE__ );
-		$this->version 			= '1.1.4';
+		$this->version 			= '1.1.5';
 
 		register_activation_hook( __FILE__, array( $this, 'install' ) );
 
@@ -204,8 +204,7 @@ final class Storefront_Sticky_Add_to_Cart {
 	 */
 	public function ssatc_script() {
 		$theme = wp_get_theme();
-
-		wp_enqueue_style( 'ssatc-styles', plugins_url( '/assets/css/style.css', __FILE__ ) );
+		wp_enqueue_style( 'ssatc-styles', plugins_url( '/assets/css/style.css', __FILE__ ), '', get_option( 'storefront-sticky-add-to-cart-version' ) );
 		wp_register_script( 'waypoints', plugins_url( '/assets/js/jquery.waypoints.min.js', __FILE__ ), array( 'jquery' ), '4.0.0' );
 		wp_register_script( 'waypoints-init', plugins_url( '/assets/js/waypoints.init.min.js', __FILE__ ), array( 'jquery' ) );
 		wp_register_script( 'ssatc-variable', plugins_url( '/assets/js/variable.min.js', __FILE__ ), array( 'jquery' ) );
@@ -276,7 +275,6 @@ final class Storefront_Sticky_Add_to_Cart {
 
 			// And if we're on a product page.
 			if ( is_product() ) {
-				$_product          = new WC_Product( $product->ID );
 				$availability      = $product->get_availability();
 				$ssatc             = new Storefront_Sticky_Add_to_Cart();
 				$availability_html = empty( $availability['availability'] ) ? '' : '<span class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</span>';
@@ -292,15 +290,15 @@ final class Storefront_Sticky_Add_to_Cart {
 								$ssatc->ssatc_product_image();
 								echo '<div class="ssatc-content">';
 								echo esc_attr__( 'You\'re viewing:', 'storefront-sticky-add-to-cart' ) . ' <strong>' . get_the_title() . '</strong><br />';
-								echo '<span class="price">' . wp_kses_post( $product->get_price_html() ) . '</span> ' . wp_kses_post( $product->get_rating_html() );
+								echo '<span class="price">' . wp_kses_post( $product->get_price_html() ) . '</span> ' . wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) );
 								echo wp_kses_post( apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product ) );
 
 								ob_start();
 
 								if ( $product->is_type( 'simple' ) ) {
-									echo '<br /><a href="' . esc_url( $product->add_to_cart_url() ) . '" class="button alt">' . esc_attr( $product->single_add_to_cart_text() ) . '</a>';
+									echo '<a href="' . esc_url( $product->add_to_cart_url() ) . '" class="button alt">' . esc_attr( $product->single_add_to_cart_text() ) . '</a>';
 								} else {
-									echo '<br /><a class="button alt variable">' . esc_attr__( 'Select options', 'storefront-sticky-add-to-cart' ) . '</a>';
+									echo '<a class="button alt variable">' . esc_attr__( 'Select options', 'storefront-sticky-add-to-cart' ) . '</a>';
 									wp_enqueue_script( 'ssatc-variable' );
 								}
 
