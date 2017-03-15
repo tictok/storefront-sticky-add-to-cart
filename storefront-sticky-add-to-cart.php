@@ -3,7 +3,7 @@
  * Plugin Name:			Storefront Sticky Add to Cart
  * Plugin URI:			https://wordpress.org/plugins/storefront-sticky-add-to-cart/
  * Description:			Adds a sticky add-to-cart bar in single product pages that is revealed as the user scrolls down the page.
- * Version:				1.1.5
+ * Version:				1.1.6
  * Author:				WooThemes
  * Author URI:			http://woothemes.com/
  * Requires at least:	4.0.0
@@ -90,7 +90,7 @@ final class Storefront_Sticky_Add_to_Cart {
 		$this->token 			= 'storefront-sticky-add-to-cart';
 		$this->plugin_url 		= plugin_dir_url( __FILE__ );
 		$this->plugin_path 		= plugin_dir_path( __FILE__ );
-		$this->version 			= '1.1.5';
+		$this->version 			= '1.1.6';
 
 		register_activation_hook( __FILE__, array( $this, 'install' ) );
 
@@ -287,10 +287,16 @@ final class Storefront_Sticky_Add_to_Cart {
 						<section class="ssatc-sticky-add-to-cart animated">
 							<div class="col-full">
 								<?php
+								if ( version_compare( WC_VERSION, '2.7.0', '<' ) ) {
+									$rating_html = $product->get_rating_html();
+								} else {
+									$rating_html = wc_get_rating_html( $product->get_average_rating() );
+								}
+
 								$ssatc->ssatc_product_image();
 								echo '<div class="ssatc-content">';
 								echo esc_attr__( 'You\'re viewing:', 'storefront-sticky-add-to-cart' ) . ' <strong>' . get_the_title() . '</strong><br />';
-								echo '<span class="price">' . wp_kses_post( $product->get_price_html() ) . '</span> ' . wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) );
+								echo '<span class="price">' . wp_kses_post( $product->get_price_html() ) . '</span> ' . wp_kses_post( $rating_html );
 								echo wp_kses_post( apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product ) );
 
 								ob_start();
