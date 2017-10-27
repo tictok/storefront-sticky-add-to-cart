@@ -3,11 +3,11 @@
  * Plugin Name:			Storefront Sticky Add to Cart
  * Plugin URI:			https://wordpress.org/plugins/storefront-sticky-add-to-cart/
  * Description:			Adds a sticky add-to-cart bar in single product pages that is revealed as the user scrolls down the page.
- * Version:				1.1.6
+ * Version:				1.1.7
  * Author:				WooThemes
  * Author URI:			http://woothemes.com/
  * Requires at least:	4.0.0
- * Tested up to:		4.7.3
+ * Tested up to:		4.8.2
  *
  * Text Domain: storefront-sticky-add-to-cart
  * Domain Path: /languages/
@@ -90,7 +90,7 @@ final class Storefront_Sticky_Add_to_Cart {
 		$this->token 			= 'storefront-sticky-add-to-cart';
 		$this->plugin_url 		= plugin_dir_url( __FILE__ );
 		$this->plugin_path 		= plugin_dir_path( __FILE__ );
-		$this->version 			= '1.1.6';
+		$this->version 			= '1.1.7';
 
 		register_activation_hook( __FILE__, array( $this, 'install' ) );
 
@@ -277,7 +277,7 @@ final class Storefront_Sticky_Add_to_Cart {
 			if ( is_product() ) {
 				$availability      = $product->get_availability();
 				$ssatc             = new Storefront_Sticky_Add_to_Cart();
-				$availability_html = empty( $availability['availability'] ) ? '' : '<span class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</span>';
+				$availability_html = empty( $availability['availability'] ) ? '' : '<span class="stock ' . esc_attr( $availability['class'] ) . '">' . wp_kses_post( $availability['availability'] ) . '</span>';
 
 				// And if the product isn't variable or grouped.
 				wp_enqueue_script( 'waypoints' );
