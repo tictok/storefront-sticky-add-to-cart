@@ -2,8 +2,8 @@
 Contributors: jameskoster, woothemes
 Tags: woocommerce, ecommerce, storefront, sticky
 Requires at least: 4.0
-Tested up to: 4.8.2
-Stable tag: 1.1.7
+Tested up to: 4.9.1
+Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ It simply takes up too much valuable screen real estate. You can display it on m
 1. The sticky add to cart bar in action.
 
 == Changelog ==
+
+= 1.1.8 - 20.12.2017 =
+* Fix - Undefined index error for specific stock settings.
 
 = 1.1.7 - 27.10.2017 =
 * Tweak - Use wp_kses_post() for stock availability sanitization. Ensures compatibility with WooCommerce Waitlist extension.
