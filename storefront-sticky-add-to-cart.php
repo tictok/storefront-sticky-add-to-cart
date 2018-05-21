@@ -194,6 +194,24 @@ final class Storefront_Sticky_Add_to_Cart {
 	public function ssatc_setup() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'ssatc_script' ), 999 );
 		add_action( 'wp', array( $this, 'ssatc_load_add_to_cart_bar' ), 999 );
+		add_filter( 'body_class', array( $this, 'body_classes' ) );
+	}
+
+	/**
+	 * Adds custom classes to the array of body classes.
+	 *
+	 * @since  1.1.9
+	 * @param  array $classes Classes for the body element.
+	 * @return array
+	 */
+	public function body_classes( $classes ) {
+		global $storefront_version;
+
+		if ( version_compare( $storefront_version, '2.3.0', '>=' ) ) {
+			$classes[] = 'storefront-2-3';
+		}
+
+		return $classes;
 	}
 
 	/**
