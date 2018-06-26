@@ -22,16 +22,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Returns the main instance of Storefront_Sticky_Add_to_Cart to prevent the need to use globals.
- *
- * @since  1.0.0
- * @return object Storefront_Sticky_Add_to_Cart
- */
-function storefront_sticky_add_to_cart() {
-	return Storefront_Sticky_Add_to_Cart::instance();
-} // End Storefront_Sticky_Add_to_Cart()
-
-/**
  * Only load plugin if Storefront version is under 2.3.0.
  *
  * @since 1.1.9
@@ -42,9 +32,10 @@ function storefront_sticky_add_to_cart_init() {
 
 	if ( class_exists( 'Storefront' ) && version_compare( $storefront_version, '2.3.0', '<' ) ) {
 		require 'classes/class-storefront-sticky-add-to-cart.php';
+		require 'functions/functions.php';
 
 		storefront_sticky_add_to_cart();
 	}
 } // end storefront_sticky_add_to_cart_init()
 
-add_action( 'init', 'storefront_sticky_add_to_cart_init' );
+add_action( 'after_setup_theme', 'storefront_sticky_add_to_cart_init' );

@@ -169,10 +169,10 @@ final class Storefront_Sticky_Add_to_Cart {
 	 */
 	public function ssatc_script() {
 		$theme = wp_get_theme();
-		wp_enqueue_style( 'ssatc-styles', plugins_url( '/assets/css/style.css', __FILE__ ), '', get_option( 'storefront-sticky-add-to-cart-version' ) );
-		wp_register_script( 'waypoints', plugins_url( '/assets/js/jquery.waypoints.min.js', __FILE__ ), array( 'jquery' ), '4.0.0' );
-		wp_register_script( 'waypoints-init', plugins_url( '/assets/js/waypoints.init.min.js', __FILE__ ), array( 'jquery' ) );
-		wp_register_script( 'ssatc-variable', plugins_url( '/assets/js/variable.min.js', __FILE__ ), array( 'jquery' ) );
+		wp_enqueue_style( 'ssatc-styles', plugins_url( '../assets/css/style.css', __FILE__ ), '', get_option( 'storefront-sticky-add-to-cart-version' ) );
+		wp_register_script( 'waypoints', plugins_url( '../assets/js/jquery.waypoints.min.js', __FILE__ ), array( 'jquery' ), '4.0.0' );
+		wp_register_script( 'waypoints-init', plugins_url( '../assets/js/waypoints.init.min.js', __FILE__ ), array( 'jquery' ) );
+		wp_register_script( 'ssatc-variable', plugins_url( '../assets/js/variable.min.js', __FILE__ ), array( 'jquery' ) );
 
 		// If Storefront is the active parent theme, add some styles.
 		if ( 'Storefront' === $theme->name || 'storefront' === $theme->template ) {
