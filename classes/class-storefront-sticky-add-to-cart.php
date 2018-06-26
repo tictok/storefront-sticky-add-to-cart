@@ -92,7 +92,7 @@ final class Storefront_Sticky_Add_to_Cart {
 	 * @return  void
 	 */
 	public function ssatc_load_plugin_textdomain() {
-		load_plugin_textdomain( 'storefront-sticky-add-to-cart', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'storefront-sticky-add-to-cart', false, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/' );
 	}
 
 	/**
