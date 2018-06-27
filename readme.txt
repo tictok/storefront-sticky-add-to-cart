@@ -2,8 +2,8 @@
 Contributors: jameskoster, woothemes
 Tags: woocommerce, ecommerce, storefront, sticky
 Requires at least: 4.0
-Tested up to: 4.9.1
-Stable tag: 1.1.8
+Tested up to: 4.9
+Stable tag: 1.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ It simply takes up too much valuable screen real estate. You can display it on m
 1. The sticky add to cart bar in action.
 
 == Changelog ==
+
+= 1.1.9 - 06.27.2018 =
+* Dev - Disable plugin if running Storefront 2.3+. This plugin is now included in Storefront core.
 
 = 1.1.8 - 20.12.2017 =
 * Fix - Undefined index error for specific stock settings.

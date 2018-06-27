@@ -55,7 +55,7 @@ final class Storefront_Sticky_Add_to_Cart {
 		$this->token 			= 'storefront-sticky-add-to-cart';
 		$this->plugin_url 		= plugin_dir_url( __FILE__ );
 		$this->plugin_path 		= plugin_dir_path( __FILE__ );
-		$this->version 			= '1.1.8';
+		$this->version 			= '1.1.9';
 
 		register_activation_hook( __FILE__, array( $this, 'install' ) );
 
